@@ -19,16 +19,16 @@ public class FilesController {
     private FilesService filesService;
 
     @PostMapping("/files")
-    public String saveFile(Authentication authentication, MultipartFile file) throws IOException {
+    public String saveFile(Authentication authentication, MultipartFile fileUpload) throws IOException {
         SuperUser superUser = (SuperUser) authentication.getPrincipal();
-        if (file.isEmpty()) {
+        if (fileUpload.isEmpty()) {
             return "redirect:/result?error";
         }
-        filesService.addFile(file, superUser.getUserid());
+        filesService.addFile(fileUpload, superUser.getUserid());
         return "redirect:/result?success";
     }
 
-    @GetMapping("/file/delete")
+    @GetMapping("/files/delete")
     public String deleteNote(@RequestParam("id") int fileid) {
         if (fileid > 0) {
             filesService.deleteFile(fileid);
