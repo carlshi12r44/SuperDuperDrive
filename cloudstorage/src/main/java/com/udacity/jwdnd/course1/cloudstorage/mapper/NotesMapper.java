@@ -18,7 +18,7 @@ public interface NotesMapper {
     @Select("SELECT * FROM NOTES WHERE userid = #{userid}")
     public List<Notes> findByUserId(int userid);
 
-    @Insert("INSERT INTO NOTES (notetitle, notedescription, userid) VALUES (#{note.notetitle}, #{note.notedescription}, #{userid}")
+    @Insert("INSERT INTO NOTES (notetitle, notedescription, userid) VALUES (#{note.notetitle}, #{note.notedescription}, #{userid})")
     public int insertNote(Notes note, int userid);
 
     @Delete("DELETE FROM NOTES WHERE noteid = #{noteid}")

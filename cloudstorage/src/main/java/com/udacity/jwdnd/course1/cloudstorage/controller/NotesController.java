@@ -18,12 +18,11 @@ public class NotesController {
 
     @PostMapping("/notes")
     public String createOrUpdateNote(Authentication authentication, Notes note) {
-        SuperUser superUser = (SuperUser) authentication.getPrincipal();
+        SuperUser appUser = (SuperUser) authentication.getPrincipal();
         if (note.getNoteid() > 0) {
             notesService.updateNote(note);
-        }
-        else {
-            notesService.addNote(note, superUser.getUserid());
+        } else {
+            notesService.addNote(note, appUser.getUserid());
         }
         return "redirect:/result?success";
     }

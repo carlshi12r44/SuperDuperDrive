@@ -194,18 +194,17 @@
         <script type="text/javascript">
             // For opening the note modal
             function showNoteModal(note) {
-                $('#note-id').val(note && note.noteid ? noteid : 0);
-                $('#note-title').val(note && note.notetitle ? notetitle : '');
-                $('#note-description').val(note && note.notedescription ? notedescription : '');
+                $('#note-id').val(note && note.noteid ? note.noteid : 0);
+                $('#note-title').val(note && note.notetitle ? note.notetitle : '');
+                $('#note-description').val(note && note.notedescription ? note.notedescription : '');
                 $('#noteModal').modal('show');
             }
-
             // For opening the credentials modal
             function showCredentialModal(credential) {
-                $('#credential-id').val(credential && credential.credentialid ? credentialid : 0);
-                $('#credential-url').val(credential && credential.url ? url : '');
-                $('#credential-username').val(credential && credential.username ? username : '');
-                $('#credential-password').val(credential && credential.password ? password : '');
+                $('#credential-id').val(credential && credential.credentialid ? credential.credentialid : 0);
+                $('#credential-url').val(credential && credential.url ? credential.url : '');
+                $('#credential-username').val(credential && credential.username ? credential.username : '');
+                $('#credential-password').val(credential && credential.password ? credential.password : '');
                 $('#credentialModal').modal('show');
             }
         </script>
